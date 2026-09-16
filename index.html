@@ -216,12 +216,6 @@ nav.scrolled{border-color:var(--border);background:rgba(10,10,10,0.92);backdrop-
 .tl-arrow{position:relative;height:44px;display:flex;justify-content:flex-start;}
 .tl-arrow svg{margin-left:20px;width:22px;height:22px;stroke:rgba(255,255,255,0.5);stroke-width:1.3;fill:none;}
 
-.pricing{max-width:640px;margin:64px auto 0;border:0.5px solid var(--border);padding:44px 48px;display:grid;grid-template-columns:auto 1fr;gap:48px;align-items:center;}
-.pricing-figure{display:flex;flex-direction:column;}
-.pricing-amount{font-family:'Cormorant Garamond',serif;font-size:clamp(48px,6vw,76px);font-weight:300;line-height:0.95;color:var(--text);letter-spacing:-0.02em;}
-.pricing-unit{font-size:11px;letter-spacing:0.16em;text-transform:uppercase;color:var(--muted);margin-top:12px;}
-.pricing-note{font-size:12.5px;color:var(--muted);line-height:1.85;}
-.pricing-note .hl{color:var(--text);}
 @media(max-width:900px){
   .process{padding:60px 24px;}
   .timeline::before{left:27px;}
@@ -229,7 +223,6 @@ nav.scrolled{border-color:var(--border);background:rgba(10,10,10,0.92);backdrop-
   .tl-icon{width:56px;height:56px;}
   .tl-icon svg{width:23px;height:23px;}
   .tl-arrow svg{margin-left:17px;}
-  .pricing{grid-template-columns:1fr;gap:24px;padding:34px 26px;}
 }
 
 /* CTA */
@@ -294,6 +287,57 @@ footer{padding:48px 56px;display:flex;align-items:center;justify-content:space-b
   footer{padding:36px 24px;flex-direction:column;gap:20px;text-align:center;}
   .footer-links{flex-wrap:wrap;justify-content:center;gap:16px;}
   .legal-block{padding:100px 24px 60px;}
+}
+
+/* ============ RONDEUR / ADOUCISSEMENT ============ */
+:root{
+--r-sm:10px;
+--r-md:16px;
+--r-lg:22px;
+--r-pill:999px;
+}
+
+/* Boutons : pilules */
+.nav-cta,.hero-cta,.cta-btn{border-radius:var(--r-pill);}
+
+/* Cartes & blocs visuels */
+.work-item{border-radius:var(--r-lg);}
+.work-item iframe{border-radius:0;}
+.audio-card{border-radius:var(--r-md);}
+.mail-card{border-radius:var(--r-md);}
+.results-shot{border-radius:var(--r-lg);}
+.review-card{border-radius:var(--r-md);}
+.about-photo{border-radius:var(--r-lg);}
+.legal-block{border-radius:var(--r-lg);}
+
+/* Micro-elements */
+.tag{border-radius:var(--r-pill);}
+.about-photo-label{border-radius:var(--r-pill);}
+.tl-tag{display:inline-block;padding:5px 12px;border:0.5px solid var(--border);border-radius:var(--r-pill);}
+
+/* Services : le separateur reste droit, seul le survol s'arrondit */
+.service{position:relative;}
+.service>*{position:relative;z-index:1;}
+.service::after{content:'';position:absolute;inset:10px;border-radius:var(--r-md);background:transparent;transition:background 0.3s;pointer-events:none;z-index:0;}
+.service:hover{background:transparent;}
+.service:hover::after{background:rgba(255,255,255,0.03);}
+
+/* FAQ : survol adouci */
+.faq-q{padding-left:16px;padding-right:16px;border-radius:var(--r-sm);transition:color 0.3s,background 0.3s;}
+.faq-q:hover{background:rgba(255,255,255,0.03);}
+.faq-a{padding-left:16px;padding-right:16px;}
+
+/* Menu mobile */
+@media(max-width:900px){
+  .nav-links{border-radius:var(--r-lg) 0 0 var(--r-lg);}
+  .work-item,.about-photo,.results-shot{border-radius:var(--r-md);}
+}
+
+/* ============ ACCESSIBILITE ============ */
+a:focus-visible,button:focus-visible{outline:2px solid rgba(255,255,255,0.75);outline-offset:3px;border-radius:var(--r-sm);}
+@media(prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:0.01ms !important;animation-iteration-count:1 !important;transition-duration:0.01ms !important;scroll-behavior:auto !important;}
+  .service,.work-item,.tl-step,.stat{opacity:1 !important;transform:none !important;}
 }
 </style>
 </head>
@@ -581,13 +625,6 @@ footer{padding:48px 56px;display:flex;align-items:center;justify-content:space-b
     </div>
   </div>
 
-  <div class="pricing">
-    <div class="pricing-figure">
-      <div class="pricing-amount">290€ <span style="font-size:0.42em;letter-spacing:0.04em;color:var(--muted);vertical-align:middle;">TTC</span></div>
-      <div class="pricing-unit">par journée de travail</div>
-    </div>
-    <p class="pricing-note">Pour éviter toute mauvaise surprise, on <span class="hl">plafonne le budget dès le départ</span> : on fixe ensemble un nombre de journées maximum, donc un coût maximum, et on adapte le périmètre à votre budget. Vous savez exactement où vous allez, la facture ne dérive jamais.</p>
-  </div>
 </section>
 
 <section class="about" id="about">
