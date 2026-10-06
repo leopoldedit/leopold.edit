@@ -333,6 +333,19 @@ footer{padding:48px 56px;display:flex;align-items:center;justify-content:space-b
   .work-item,.about-photo,.results-shot{border-radius:var(--r-md);}
 }
 
+/* 3D — mise en avant */
+.threed{margin-bottom:64px;}
+.threed-head{display:flex;align-items:baseline;gap:20px;flex-wrap:wrap;margin-bottom:22px;}
+.threed-badge{font-size:10px;letter-spacing:0.18em;text-transform:uppercase;color:#d9b36c;padding:6px 14px;border:0.5px solid rgba(217,179,108,0.45);border-radius:999px;white-space:nowrap;}
+.threed-text{font-size:13px;color:var(--muted);line-height:1.8;max-width:560px;}
+.threed-text .hl{color:var(--text);}
+.work-item video{width:100%;aspect-ratio:16/9;display:block;object-fit:cover;background:#000;}
+/* Parcours client — vidéo */
+.process-head{margin-bottom:48px;}
+.process-head h2{margin-top:0;}
+.process-video{max-width:1100px;margin:0 auto;}
+@media(max-width:900px){.threed{margin-bottom:48px;}.threed-head{gap:14px;}.process-head{margin-bottom:32px;}}
+
 /* ============ ACCESSIBILITE ============ */
 a:focus-visible,button:focus-visible{outline:2px solid rgba(255,255,255,0.75);outline-offset:3px;border-radius:var(--r-sm);}
 @media(prefers-reduced-motion:reduce){
@@ -409,6 +422,20 @@ a:focus-visible,button:focus-visible{outline:2px solid rgba(255,255,255,0.75);ou
 
 <section class="work grid-bg" id="work">
   <div class="section-label">Réalisations</div>
+  <!-- 3D : mise en avant -->
+  <div class="threed">
+    <div class="threed-head">
+      <span class="threed-badge">Nouveau · 3D</span>
+      <p class="threed-text">Je modélise et anime aussi en <span class="hl">3D</span> sous Blender — pour donner du relief à vos données et à vos concepts.</p>
+    </div>
+    <div class="work-item threed-video" data-delay="0">
+      <video src="media/sp500-crises-3d.mp4" poster="media/sp500-crises-3d.jpg" autoplay muted loop playsinline preload="metadata" aria-label="Animation 3D : le S&amp;P 500 traverse les crises"></video>
+      <div class="work-label">
+        <div class="work-label-title">Le S&amp;P 500 face aux crises</div>
+        <div class="work-label-tag">3D · Data viz · Blender</div>
+      </div>
+    </div>
+  </div>
   <!-- LIGNE 1 : deux vidéos horizontales -->
   <div class="work-row">
     <div class="work-col">
@@ -584,45 +611,10 @@ a:focus-visible,button:focus-visible{outline:2px solid rgba(255,255,255,0.75);ou
 <!-- PROCESS / PARCOURS -->
 <section class="process grid-bg" id="process">
   <div class="process-head">
-    <div class="section-label">Comment on travaille</div>
-    <h2>Une collaboration cadrée, du premier appel au rythme de croisière.</h2>
+    <h2>Parcours client</h2>
   </div>
-  <div class="timeline">
-    <div class="tl-step" data-delay="0">
-      <div class="tl-icon"><svg viewBox="0 0 24 24"><path d="M4 5a1 1 0 0 1 1-1h3l1.5 4-2 1.5a11 11 0 0 0 5 5l1.5-2 4 1.5V17a1 1 0 0 1-1 1A13 13 0 0 1 4 5z" stroke-linejoin="round"/></svg></div>
-      <div class="tl-body">
-        <div class="tl-title">Appel de cadrage</div>
-        <p class="tl-desc">On comprend votre projet et vos objectifs.</p>
-        <div class="tl-tag">15 min · gratuit</div>
-      </div>
-    </div>
-    <div class="tl-arrow"><svg viewBox="0 0 24 24"><path d="M12 4v15M6 13l6 6 6-6" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
-    <div class="tl-step" data-delay="0">
-      <div class="tl-icon"><svg viewBox="0 0 24 24"><rect x="3" y="6" width="13" height="12" rx="1.5"/><path d="M16 10l5-3v10l-5-3z" stroke-linejoin="round"/></svg></div>
-      <div class="tl-body">
-        <div class="tl-title">Première vidéo</div>
-        <p class="tl-desc">Une V1 qui pose le ton. Pas de test gratuit.</p>
-        <div class="tl-tag">V1 payante</div>
-      </div>
-    </div>
-    <div class="tl-arrow"><svg viewBox="0 0 24 24"><path d="M12 4v15M6 13l6 6 6-6" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
-    <div class="tl-step" data-delay="0">
-      <div class="tl-icon"><svg viewBox="0 0 24 24"><path d="M3 8a7 7 0 0 1 12-4l2 2M21 16a7 7 0 0 1-12 4l-2-2" stroke-linecap="round" stroke-linejoin="round"/><path d="M17 3v3h-3M7 21v-3h3" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
-      <div class="tl-body">
-        <div class="tl-title">Mise en place du suivi</div>
-        <p class="tl-desc">On cale un rythme régulier, sur la durée.</p>
-        <div class="tl-tag">Relation long terme</div>
-      </div>
-    </div>
-    <div class="tl-arrow"><svg viewBox="0 0 24 24"><path d="M12 4v15M6 13l6 6 6-6" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
-    <div class="tl-step" data-delay="0">
-      <div class="tl-icon"><svg viewBox="0 0 24 24"><path d="M20 7L10 17l-5-5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
-      <div class="tl-body">
-        <div class="tl-title">Production & itérations</div>
-        <p class="tl-desc">Livraison dans les délais, retours inclus.</p>
-        <div class="tl-tag">Délais garantis</div>
-      </div>
-    </div>
+  <div class="work-item process-video" data-delay="0">
+    <video src="media/parcours-client.mp4" poster="media/parcours-client.jpg" muted loop playsinline preload="metadata" data-autoplay-visible aria-label="Le parcours client, étape par étape"></video>
   </div>
 
 </section>
@@ -909,6 +901,18 @@ document.querySelectorAll('a[href^="#"]').forEach(a=>{
 
   // démarre après un court délai pour laisser le titre apparaître
   setTimeout(start,400);
+})();
+</script>
+<script>
+/* Lecture des vidéos uniquement quand elles sont visibles */
+(function(){
+  var vids=document.querySelectorAll('.work-item video');
+  if(!('IntersectionObserver' in window)){vids.forEach(function(v){v.play&&v.play().catch(function(){});});return;}
+  var io=new IntersectionObserver(function(es){es.forEach(function(e){
+    var v=e.target;
+    if(e.isIntersecting){var p=v.play();if(p)p.catch(function(){});}else{v.pause();}
+  });},{threshold:0.35});
+  vids.forEach(function(v){v.removeAttribute('autoplay');io.observe(v);});
 })();
 </script>
 </body>
